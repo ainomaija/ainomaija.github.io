@@ -3,7 +3,14 @@ layout: default
 ---
 
 <article>
-<h1>{{page.title}}</h1>
+<h1 class="pull-right"><small>{{ page.date | date: "%A - %b %d, %Y" }}</small></h1>
+<h1 class="post-title">{{ page.title }}</h1>
 <hr/>
 {{content}}
 </article>
+
+{% if page.previous %}
+<small>
+    <a href="{{ page.previous.url }}" title="{{ page.previous.summary }}">&larr; {{ page.previous.title }}</a>
+</small>
+{% endif %}
